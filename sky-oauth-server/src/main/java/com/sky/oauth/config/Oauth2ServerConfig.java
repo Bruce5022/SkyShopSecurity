@@ -1,6 +1,7 @@
 package com.sky.oauth.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -9,6 +10,10 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.A
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
+import org.springframework.security.oauth2.provider.token.TokenStore;
+import org.springframework.security.oauth2.provider.token.store.JdbcTokenStore;
+
+import javax.sql.DataSource;
 
 @Configuration
 @EnableAuthorizationServer
@@ -19,6 +24,14 @@ public class Oauth2ServerConfig extends AuthorizationServerConfigurerAdapter {
 
     @Autowired
     private AuthenticationManager authenticationManager;
+
+    @Autowired
+    private DataSource dataSource;
+
+    @Bean
+    public TokenStore tokenStore(){
+        return new JdbcTokenStore(dataSource);
+    }
 
     @Override
     public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
@@ -31,7 +44,7 @@ public class Oauth2ServerConfig extends AuthorizationServerConfigurerAdapter {
 
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-        // 配置哪些应用会来请求令牌,这里是配置了一个订单应用
+        /*// 配置哪些应用会来请求令牌,这里是配置了一个订单应用
         clients
                 .inMemory()
                 .withClient("orderApp") // 相当于应用的用户名
@@ -50,13 +63,17 @@ public class Oauth2ServerConfig extends AuthorizationServerConfigurerAdapter {
                 .scopes("read")
                 .accessTokenValiditySeconds(5 * 60)
                 .resourceIds("order-server")
-                .authorizedGrantTypes("password");
+                .authorizedGrantTypes("password");*/
+        clients.jdbc(dataSource);
+
 
     }
 
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
         // 配置认证管理器，用来校验传来的用户信息是否合法
-        endpoints.authenticationManager(authenticationManager);
+        endpoints
+                .tokenStore(tokenStore())
+                .authenticationManager(authenticationManager);
     }
 }

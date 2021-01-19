@@ -1,2 +1,11 @@
 server:
   port: 9090
+
+spring:
+  application:
+    name: sky-oauth-server
+  datasource:
+    url: jdbc:mysql://49.234.60.118:3306/spring-security-db?characterEncoding=utf8
+    username: root
+    password: Windows8
+    driver-class-name: com.mysql.cj.jdbc.Driver
