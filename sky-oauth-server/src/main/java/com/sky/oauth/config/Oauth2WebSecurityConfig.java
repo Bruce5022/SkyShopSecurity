@@ -27,7 +27,6 @@ public class Oauth2WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 
     @Autowired
-    @Qualifier("userDetailServiceImpl")
     private UserDetailsService userDetailsService;
 
 

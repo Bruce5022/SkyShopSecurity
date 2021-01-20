@@ -17,7 +17,7 @@ import javax.sql.DataSource;
 
 @Configuration
 @EnableAuthorizationServer
-public class Oauth2ServerConfig extends AuthorizationServerConfigurerAdapter {
+public class Oauth2AuthServerConfig extends AuthorizationServerConfigurerAdapter {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -35,10 +35,10 @@ public class Oauth2ServerConfig extends AuthorizationServerConfigurerAdapter {
 
     @Override
     public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
-        // 配用来检查token的服务的访问规则，这里写一个权限表达式
+        // 实际上在配我用来检查token的服务的访问规则，这里写一个权限表达式
     // Spring security提供了一组权限表达式，可以根据权限表达式组装出各种各样的复杂的权限控制
-    // 这里的配置：来checkToken 的请求，一定是经过身份认证的，也就是你要么是orderApp密码是123456，要么是orderService密码是123456，
-    // 必须带着你的信息来checkTokne，我才给你验，随便发一个让验我是不验的
+    // 这里的配置：来checkToken 的请求，一定是经过身份认证的，所谓经过认证的，也就是你要么是orderApp密码是123456，要么是orderService密码是123456，
+    // 必须带着你的信息来checkToken，我才给你验，随便发一个让验我是不验的
         security.checkTokenAccess("isAuthenticated()");
 }
 
