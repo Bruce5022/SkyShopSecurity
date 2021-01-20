@@ -28,7 +28,7 @@ public class Oauth2WebSecurityConfig extends WebSecurityConfigurerAdapter {
         remoteTokenServices.setClientId("orderService");
         remoteTokenServices.setClientSecret("123456");
         remoteTokenServices.setCheckTokenEndpointUrl("http://localhost:9090/oauth/check_token");
-        remoteTokenServices.setAccessTokenConverter(getAccessTokenConverter());
+        remoteTokenServices.setAccessTokenConverter(this.getAccessTokenConverter());
         return remoteTokenServices;
     }
 
