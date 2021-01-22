@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/sky-oauth-server/sky-oauth-server.iml" filepath="$PROJECT_DIR$/sky-oauth-server/sky-oauth-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/sky-order-api/sky-order-api.iml" filepath="$PROJECT_DIR$/sky-order-api/sky-order-api.iml" />
       <module fileurl="file://$PROJECT_DIR$/sky-price-api/sky-price-api.iml" filepath="$PROJECT_DIR$/sky-price-api/sky-price-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sky-server-gateway/sky-server-gateway.iml" filepath="$PROJECT_DIR$/sky-server-gateway/sky-server-gateway.iml" />
       <module fileurl="file://$PROJECT_DIR$/sky-user-api/sky-user-api.iml" filepath="$PROJECT_DIR$/sky-user-api/sky-user-api.iml" />
     </modules>
   </component>

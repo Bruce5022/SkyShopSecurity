@@ -4,6 +4,7 @@
     <file url="file://$PROJECT_DIR$/sky-oauth-server" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/sky-order-api" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/sky-price-api" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/sky-server-gateway" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/sky-user-api" charset="UTF-8" />
   </component>
 </project>

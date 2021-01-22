@@ -9,6 +9,7 @@
         <module name="sky-oauth-server" />
         <module name="sky-order-api" />
         <module name="sky-price-api" />
+        <module name="sky-server-gateway" />
         <module name="sky-user-api" />
       </profile>
     </annotationProcessing>
@@ -16,6 +17,7 @@
       <module name="sky-oauth-server" target="1.8" />
       <module name="sky-order-api" target="1.8" />
       <module name="sky-price-api" target="1.8" />
+      <module name="sky-server-gateway" target="1.8" />
       <module name="sky-user-api" target="1.8" />
     </bytecodeTargetLevel>
   </component>
